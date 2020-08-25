@@ -1,0 +1,29 @@
+{
+  "name": "ebookstore",
+  "version": "1.0.0",
+  "description": "Node and Express are popular frameworks to create a web server using the JavaScript language. We will create a MongoDB database and save and retrieve the admin user.",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --watch backend --exec babel-node  backend/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SaraGinsburg/eBookStore.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SaraGinsburg/eBookStore/issues"
+  },
+  "homepage": "https://github.com/SaraGinsburg/eBookStore#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.11.4",
+    "@babel/node": "^7.10.5",
+    "@babel/preset-env": "^7.11.0",
+    "nodemon": "^2.0.4"
+  }
+}
