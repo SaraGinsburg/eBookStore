@@ -32,3 +32,21 @@ setProduct(data);
 9. composeEnhancer
 10. useSelector instead of useState
 11. useDispatch()
+
+# connect Product with Redux
+
+1. useSelector to access the product Details (productDetails) state from Redux
+2. useDispatch - to dispatch an action
+3. useEffect - dispatch an action (detailsProduct), for input an [] (empty array ), means that the code - dispatch(detailsProduct()) - will run after component did mount (after rendering onto the screen)
+4. define detailsProduct() in actions/productActions
+5. accepts a parameter - productId, it returns a function that accepts dispatch
+   dispatch is used inside the try-catch. After getting the data, dispatch PRODUCT_DETAILS_SUCCESS
+6. in ProductScreen - deconstruct product, loading, error from productDetails
+7. create api in server.js
+8. productDetailsReducer
+9. implement addToCart
+10. manage qty of product, in ProductScreen define a hook to get qty entered by user, setQty , useState(1) - default value is 1.
+11. replace static option for qty
+12. n = [...Array(5).keys()] will give an array such as  [0, 1, 2, 3, 4] \* explaining ProductScreen.js line 57, creating an array for countInStock and generating the <option></option>
+13. handleAddToCart - this function will redirect user. this is a method to redirect to another place.
+    props.history.push("/cart" + props.match.params.id)
