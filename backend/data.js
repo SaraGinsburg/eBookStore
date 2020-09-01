@@ -18,7 +18,11 @@ export default {
       price: 4,
       publisher: "Kehot",
       condition: "new",
+<<<<<<< HEAD
       countInStock: 4,
+=======
+      countInStock: 8,
+>>>>>>> master
     },
     {
       _id: "3",
@@ -28,7 +32,11 @@ export default {
       price: 3,
       publisher: "Magid",
       condition: "new",
+<<<<<<< HEAD
       countInStock: 7,
+=======
+      countInStock: 6,
+>>>>>>> master
     },
     {
       _id: "4",
@@ -38,7 +46,11 @@ export default {
       price: 4,
       publisher: "Magid",
       condition: "new",
+<<<<<<< HEAD
       countInStock: 3,
+=======
+      countInStock: 5,
+>>>>>>> master
     },
     {
       _id: "5",
@@ -48,7 +60,11 @@ export default {
       price: 9,
       publisher: "Magid",
       condition: "new",
+<<<<<<< HEAD
       countInStock: 1,
+=======
+      countInStock: 2,
+>>>>>>> master
     },
   ],
 };

@@ -6,6 +6,11 @@ import {
   PRODUCT_DETAILS_REQUEST,
   PRODUCT_DETAILS_SUCCESS,
 } from "../constants/productConstants";
+import {
+  PRODUCT_DETAILS_FAIL,
+  PRODUCT_DETAILS_REQUEST,
+  PRODUCT_DETAILS_SUCCESS,
+} from "../constants/productConstants";
 import axios from "axios";
 
 const listProducts = () => async (dispatch) => {
