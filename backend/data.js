@@ -18,6 +18,7 @@ export default {
       price: 4,
       publisher: "Kehot",
       condition: "new",
+
       countInStock: 8,
     },
     {
@@ -28,6 +29,7 @@ export default {
       price: 3,
       publisher: "Magid",
       condition: "new",
+
       countInStock: 6,
     },
     {

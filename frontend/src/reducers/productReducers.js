@@ -6,6 +6,11 @@ import {
   PRODUCT_DETAILS_FAIL,
   PRODUCT_DETAILS_SUCCESS,
 } from "../constants/productConstants";
+import {
+  PRODUCT_DETAILS_REQUEST,
+  PRODUCT_DETAILS_SUCCESS,
+  PRODUCT_DETAILS_FAIL,
+} from "../constants/productConstants";
 
 function productListReducer(state = { products: [] }, action) {
   switch (action.type) {
@@ -19,7 +24,6 @@ function productListReducer(state = { products: [] }, action) {
       return state;
   }
 }
-
 function productDetailsReducer(state = { product: {} }, action) {
   switch (action.type) {
     case PRODUCT_DETAILS_REQUEST:
