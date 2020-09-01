@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { CART_ADD_ITEM } from "../constants/cartConstants";
+=======
+import { CART_ADD_ITEM, CART_REMOVE_ITEM } from "../constants/cartConstants";
+>>>>>>> shopping-cart
 
 function cartReducer(state = { cartItems: [] }, action) {
   switch (action.type) {
@@ -13,6 +17,13 @@ function cartReducer(state = { cartItems: [] }, action) {
         };
       }
       return { cartItems: [...state.cartItems, item] };
+<<<<<<< HEAD
+=======
+    case CART_REMOVE_ITEM:
+      return {
+        cartItems: state.cartItems.filter((x) => x.product !== action.payload),
+      };
+>>>>>>> shopping-cart
     default:
       return state;
   }

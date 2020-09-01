@@ -17,8 +17,14 @@ function ProductScreen(props) {
   }, []);
 
   const handleAddToCart = () => {
+<<<<<<< HEAD
     props.history.push("/cart" + props.match.params.id + "?qty=" + qty);
   };
+=======
+    props.history.push("/cart/" + props.match.params.id + "?qty=" + qty);
+  };
+
+>>>>>>> shopping-cart
   return (
     <div>
       <div className="back">
@@ -27,7 +33,11 @@ function ProductScreen(props) {
       {loading ? (
         <div>Loading...</div>
       ) : error ? (
+<<<<<<< HEAD
         <div>{error}</div>
+=======
+        <div>{error}}</div>
+>>>>>>> shopping-cart
       ) : (
         <div className="details">
           <div className="details-image">
@@ -43,7 +53,14 @@ function ProductScreen(props) {
               <li>
                 <b>Price: ${product.price}</b>
               </li>
+<<<<<<< HEAD
               <li>Description: {product.description}</li>
+=======
+              <li>
+                Description:
+                <div>{product.description}</div>
+              </li>
+>>>>>>> shopping-cart
             </ul>
           </div>
           <div className="details-action">
@@ -53,7 +70,11 @@ function ProductScreen(props) {
                 Status: {product.countInStock > 0 ? "In Stock" : "Unavailable"}
               </li>
               <li>
+<<<<<<< HEAD
                 Qty:
+=======
+                Qty:{" "}
+>>>>>>> shopping-cart
                 <select
                   value={qty}
                   onChange={(e) => {
