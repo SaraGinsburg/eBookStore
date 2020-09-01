@@ -255,8 +255,9 @@ a:hover {
 .cart-name {
   flex: 8 1;
 }
+
 .cart-price {
   flex: 1 1;
-  font-size: 2.5rem;
+  font-size: 2.4rem;
   text-align: right;
 }

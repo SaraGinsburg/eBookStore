@@ -21,7 +21,6 @@ function productListReducer(state = { products: [] }, action) {
       return state;
   }
 }
-
 function productDetailsReducer(state = { product: {} }, action) {
   switch (action.type) {
     case PRODUCT_DETAILS_REQUEST:

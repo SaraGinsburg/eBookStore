@@ -17,7 +17,6 @@ function cartReducer(state = { cartItems: [] }, action) {
       return {
         cartItems: state.cartItems.filter((x) => x.product !== action.payload),
       };
-
     default:
       return state;
   }

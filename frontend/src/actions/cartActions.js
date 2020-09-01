@@ -29,4 +29,5 @@ const removeFromCart = (productId) => (dispatch, getState) => {
   } = getState();
   Cookie.set("cartItems", JSON.stringify(cartItems));
 };
+
 export { addToCart, removeFromCart };
