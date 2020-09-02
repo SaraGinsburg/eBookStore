@@ -50,3 +50,14 @@ setProduct(data);
 12. n = [...Array(5).keys()] will give an array such as  [0, 1, 2, 3, 4] \* explaining ProductScreen.js line 57, creating an array for countInStock and generating the <option></option>
 13. handleAddToCart - this function will redirect user. this is a method to redirect to another place.
     props.history.push("/cart" + props.match.params.id)
+
+# connect to mongoDB
+
+1. create .env file, it is a configuration file
+   contain the address of mongoDB connection string
+2. in terminal, install dotenv, to allow accessing the variable from .env in the node application
+3. in backend, create new file config.js, in it export default an object
+4. in server.js import config and dotenv
+5. connect mongoose. now we are connected to mongoDB
+6. create models
+7. create routes folder, we'll use the routes feature of express
