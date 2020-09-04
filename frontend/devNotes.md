@@ -61,3 +61,28 @@ setProduct(data);
 5. connect mongoose. now we are connected to mongoDB
 6. create models
 7. create routes folder, we'll use the routes feature of express
+
+# signIn and register screens
+
+1. create route for signIn in userRoute.js
+2. post request, with handler and responder
+3. User.findOne filter checking for corresponding email and password
+4. if user exists, send back a token (an identifier) for authentication puposes.
+5. npm install jasonwebtoken
+6. create a util.js file in the backend folder. jwt.sign(), first parameter is the payload which is the user, and the second parameter is a secret key to encrypt the payload
+7. has to be in the .env file
+8. add JWT_SECRET to config.js
+9. SigninScreen.js.
+10. in App.js define route to signinScreen
+11. const userSignin = useSelector((state)=>state.userSignin); accessing userSignin from the redux store. and from the userSignin will access the user information { loading, userInfo, error}
+12. in useEffect(...) if userInfo exists, will direct user to the homepage - {props.history.push("/")}. in the [], place userInfo, [userInfo], if userInfo state changes, then these lines of code - if (userInfo){
+    props.history.push("/");
+    }
+    will run.
+13. npm install body-parser. body-parser is a middleware for express that provides the data that the user enters in the post request into the node application.
+    at the server, import bodyParser
+14. right after const app = express(); enter
+    app.use(bodyParser.json()). by having this I am able to read data
+15. in store.js, define const userInfo, based on the data we get from the user
+16. in App.js, define const userSignin and based on it, userInfo
+17. provide backend for register. in userRoute.js
