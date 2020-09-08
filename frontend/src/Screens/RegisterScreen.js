@@ -66,7 +66,7 @@ function RegisterScreen(props) {
           <li>
             <label htmlFor="rePassword">Re-Enter Password</label>
             <input
-              type="Password"
+              type="password"
               name="rePassword"
               id="rePassword"
               onChange={(e) => setRePassword(e.target.value)}

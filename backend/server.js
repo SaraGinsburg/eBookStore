@@ -5,6 +5,7 @@ import config from "./config";
 import mongoose from "mongoose";
 import bodyParser from "body-parser";
 import userRoute from "./routes/userRoute";
+import productRoute from "./routes/productRoute";
 
 dotenv.config();
 const mongodbUrl = config.MONGODB_URL;
@@ -20,26 +21,22 @@ const app = express();
 app.use(bodyParser.json());
 
 app.use("/api/users", userRoute);
-app.get("/api/products/:id", (req, res) => {
-  const productId = req.params.id;
-  const product = data.products.find((x) => x._id === productId);
-  if (product) res.send(product);
-  else res.status(404).send({ msg: "Product Not Found." });
-});
+app.use("/api/products", productRoute);
+
+// app.get("/api/products/:id", (req, res) => {
+//   const productId = req.params.id;
+//   const product = data.products.find((x) => x._id === productId);
+//   if (product) res.send(product);
+//   else res.status(404).send({ msg: "Product Not Found." });
+// });
 
 // path of endpoint "/api/products"
 // second parameter of get is a handler function
-app.get("/api/products", (req, res) => {
-  res.send(data.products);
-});
-app.get("/api/products/:id", (req, res) => {
-  const productId = req.params.id;
-  const product = data.products.find((x) => x._id === productId);
-  if (product) res.send(product);
-  else res.status(404).send({ msg: "Product Not Found." });
-});
+// app.get("/api/products", (req, res) => {
+//   res.send(data.products);
+// });
 
-//  app.listen, means that the express will start running.
+//  app.listen, means that  express will start running.
 // first parameter is the port number
 // second parameter is a callback, that will run when express successfully created this server
 

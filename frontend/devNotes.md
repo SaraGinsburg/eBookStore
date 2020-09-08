@@ -86,3 +86,43 @@ setProduct(data);
 15. in store.js, define const userInfo, based on the data we get from the user
 16. in App.js, define const userSignin and based on it, userInfo
 17. provide backend for register. in userRoute.js
+
+# manage products screen
+
+1. in util.js, write method to authenticate user and admin, const isAuth = (req, res, next) => {
+
+} next is a middleware for express. then, get token from req.headers.authorization.
+if token exists, keep only token, (get rid of the barrier part).
+
+2. isAdmin - if req.user exists and req.user.isAdmin, then return next(), which means accept this request
+3. creat model for products (in backend)
+4. create router for getting all products, "/" - root, (req, res) - handler, will send the list of products to the user.
+5. create router for posting a product
+6. in fronend, ProductsScreen to create a new product
+7. create saveProduct action creator:
+   it accepts product as an argument and returns an async function that uses dispatch as an argument.
+   in the try part of a try-catch, try {
+   dispatch({type: PRODUCT_SAVE_REQUEST, payload: product})
+   const {data} = await Axios.post('/api/products', product, {
+   headers: {
+   'Authorization': 'Bearer ' + userInfo.token
+   }
+   } )  
+    first argument, the method is '/api/products'
+   second argument, the body is the product itself,
+   third argument, includes the headers. the token comes from getState
+   }
+8. create constants
+9. add to product reducers, include in store.js
+10. import PRODUCT_SAVE_REQUEST,
+    PRODUCT_SAVE_SUCCESS,
+    PRODUCT_SAVE_FAIL,
+    in productReducers and in productActions
+11. create a route for products in App.js
+12. Axios.put - for product update. create route for put in productRoute.js (backend), status code 200, for update
+13. in Products Screen, in useEffect place [successSave] in the array of variables that changing them rerun the useEffect.
+    if (successSave) {
+    setModalVisible(false);
+    }
+    dispatch(listProducts());
+    the dispatch will refresh the data
