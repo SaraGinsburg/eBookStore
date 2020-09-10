@@ -126,3 +126,11 @@ if token exists, keep only token, (get rid of the barrier part).
     }
     dispatch(listProducts());
     the dispatch will refresh the data
+
+# order details screen
+
+1. when a user clicks on 'place order', he will be directed to the order details screen.
+2. in backend, create file orderModel.js
+3. in orderRoute.js, const router = express.Router(); get access to router from express.Router()
+   send status code 201, when successful, beacuse an item was created. this is creating an endpoint for creating an order on the server
+4. in useEffect we want to call detailsOrder(), the id of the order is props.match.params.id. by making an empty array [], for input it means that the useEffect will run only at the beginning of this component.

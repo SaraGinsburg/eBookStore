@@ -53,7 +53,6 @@ function CartScreen(props) {
                       onChange={(e) =>
                         dispatch(addToCart(item.product, e.target.value))
                       }
-                      debugger
                     >
                       {[...Array(item.countInStock).keys()].map((x) => (
                         <option key={x + 1} value={x + 1}>
