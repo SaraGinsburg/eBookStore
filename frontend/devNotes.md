@@ -134,3 +134,13 @@ if token exists, keep only token, (get rid of the barrier part).
 3. in orderRoute.js, const router = express.Router(); get access to router from express.Router()
    send status code 201, when successful, beacuse an item was created. this is creating an endpoint for creating an order on the server
 4. in useEffect we want to call detailsOrder(), the id of the order is props.match.params.id. by making an empty array [], for input it means that the useEffect will run only at the beginning of this component.
+
+# connect to paypal
+
+1. go to paypal.com/bizsignup, create a paypal business account
+2. in server.js create a route for "/api/config/paypal" , we want to return the client id to the front end.
+3. create component PaypalButton.js
+4. inside PaypalButton function we will load paypal script,
+   if(!window.paypal) - it means that it was not loaded
+   inside addPaypalSdk, we'll get access to paypal client id
+   create a script element - const script = document.createElement('script');
