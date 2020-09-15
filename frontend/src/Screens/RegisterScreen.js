@@ -87,7 +87,7 @@ function RegisterScreen(props) {
               to={redirect === "/" ? "signin" : "signin?redirect=" + redirect}
               className="button secondary text-center"
             >
-              Create your eBookStore account
+              Sign in to your account
             </Link>
           </li>
         </ul>

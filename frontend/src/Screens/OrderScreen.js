@@ -86,6 +86,7 @@ function OrderScreen(props) {
         <div className="placeorder-action">
           <ul>
             <li className="placeorder-actions-payment">
+              {loadingPay && <div>Finishing Payment...</div>}
               {!order.isPaid && (
                 <PaypalButton
                   amount={order.totalPrice}
