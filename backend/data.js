@@ -1,7 +1,22 @@
-export default {
+import bcrypt from "bcryptjs";
+
+const data = {
+  users: [
+    {
+      name: "Sara",
+      email: "admin@example.com",
+      password: bcrypt.hashSync("1234", 8),
+      isAdmin: true,
+    },
+    {
+      name: "John",
+      email: "user@example.com",
+      password: bcrypt.hashSync("1234", 8),
+      isAdmin: false,
+    },
+  ],
   products: [
     {
-      _id: "1",
       name: "On the Essence of Chassidus",
       category: "Chassidus",
       image: "/images/chas1.jpg",
@@ -11,7 +26,6 @@ export default {
       countInStock: 0,
     },
     {
-      _id: "2",
       name: "On the Essence of Chassidus",
       category: "Chassidus",
       image: "/images/chas1.jpg",
@@ -21,7 +35,6 @@ export default {
       countInStock: 8,
     },
     {
-      _id: "3",
       name: "My Rebbe (Hebrew)",
       category: "Chassidic Thought",
       image: "/images/Rebbe1.jpg",
@@ -31,7 +44,6 @@ export default {
       countInStock: 6,
     },
     {
-      _id: "4",
       name: "My Rebbe (Hebrew)",
       category: "Chassidic Thought",
       image: "/images/Rebbe1.jpg",
@@ -41,7 +53,6 @@ export default {
       countInStock: 5,
     },
     {
-      _id: "5",
       name: "My Rebbe (Hebrew)",
       category: "Chassidic Thought",
       image: "/images/Rebbe1.jpg",
@@ -52,3 +63,4 @@ export default {
     },
   ],
 };
+export default data;
