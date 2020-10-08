@@ -62,6 +62,16 @@ setProduct(data);
 6. create models
 7. create routes folder, we'll use the routes feature of express
 
+# Create Sign-in Backend
+
+1. create / sign-in api
+2. check email and password
+3. generate token
+4. install json web token
+5. install dotenv
+6. return token and data
+7. test it using postman
+
 # signIn and register screens
 
 1. create route for signIn in userRoute.js
