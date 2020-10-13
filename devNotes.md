@@ -294,3 +294,14 @@ from Readme.md
     5. install dotenv
     6. return token and data
     7. test it using postman
+
+{
+name: "Stay With Me",
+category: "Novel",
+image:
+"https://images-na.ssl-images-amazon.com/images/I/41DC7iV9OCL._SY498_BO1,204,203,200_.jpg",
+price: 24.95,
+publisher: "Hamodia",
+condition: "new",
+countInStock: 15,
+},

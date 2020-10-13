@@ -25,15 +25,7 @@ const data = {
       condition: "new",
       countInStock: 0,
     },
-    {
-      name: "On the Essence of Chassidus",
-      category: "Chassidus",
-      image: "/images/chas1.jpg",
-      price: 4,
-      publisher: "Kehot",
-      condition: "new",
-      countInStock: 8,
-    },
+
     {
       name: "My Rebbe (Hebrew)",
       category: "Chassidic Thought",
@@ -42,24 +34,6 @@ const data = {
       publisher: "Magid",
       condition: "new",
       countInStock: 6,
-    },
-    {
-      name: "My Rebbe (Hebrew)",
-      category: "Chassidic Thought",
-      image: "/images/Rebbe1.jpg",
-      price: 4,
-      publisher: "Magid",
-      condition: "new",
-      countInStock: 5,
-    },
-    {
-      name: "My Rebbe (Hebrew)",
-      category: "Chassidic Thought",
-      image: "/images/Rebbe1.jpg",
-      price: 9,
-      publisher: "Magid",
-      condition: "new",
-      countInStock: 2,
     },
   ],
 };
