@@ -317,14 +317,14 @@ from Readme.md
     1. create CheckoutSteps.js component
     2. create shipping fields
     3. implement shipping constant, actions and reducers
-
-{
-name: "Stay With Me",
-category: "Novel",
-image:
-"https://images-na.ssl-images-amazon.com/images/I/41DC7iV9OCL._SY498_BO1,204,203,200_.jpg",
-price: 24.95,
-publisher: "Hamodia",
-condition: "new",
-countInStock: 15,
-},
+25. Create Payment Screen 1. create payment fields 2. implement shipping constant, actions and reducers
+    {
+    name: "Stay With Me",
+    category: "Novel",
+    image:
+    "https://images-na.ssl-images-amazon.com/images/I/41DC7iV9OCL._SY498_BO1,204,203,200_.jpg",
+    price: 24.95,
+    publisher: "Hamodia",
+    condition: "new",
+    countInStock: 15,
+    },
