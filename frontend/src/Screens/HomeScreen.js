@@ -10,10 +10,7 @@ function HomeScreen(props) {
 
   useEffect(() => {
     dispatch(listProducts());
-    return () => {
-      //
-    };
-  }, []);
+  }, [dispatch]);
   return loading ? (
     <div>Loading...</div>
   ) : error ? (
