@@ -346,11 +346,15 @@ from Readme.md
     5. add paypal checkout script in OrderScreen.js
     6. show paypal button
 31. Implement Order Payment
-
     1. update order after payment
     2. create payOrder in api.js
     3. create route for /:id/pay in orderRouter.js
     4. rerender after pay order
+32. Display Orders History
+    1. create customer orders api
+    2. create api for getMyOrders
+    3. show orders in profile screen
+    4. style orders
 
        {
        name: "Stay With Me",
