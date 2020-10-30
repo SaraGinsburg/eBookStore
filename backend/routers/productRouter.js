@@ -48,7 +48,6 @@ productRouter.post(
       publisher: "sample publisher",
       countInStock: 0,
       condition: "sample condition",
-      numReviews: 0,
       description: "sample description",
     });
     const createdProduct = await product.save();
