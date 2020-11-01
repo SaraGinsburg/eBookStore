@@ -381,10 +381,15 @@ from Readme.md
     4. load product details
     5. add to routes
 39. Update Product
-
     1. define update api
     2. define product update constant, action and reducer
     3. use action in Product Edit Screen
+40. Upload Product Image
+
+    1. npm install multer
+    2. define upload router
+    3. create uploads folder
+    4. Handle frontend
 
        {
        name: "Stay With Me",
