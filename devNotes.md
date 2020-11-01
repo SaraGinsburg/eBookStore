@@ -391,13 +391,19 @@ from Readme.md
     3. create uploads folder
     4. Handle frontend
 
-       {
-       name: "Stay With Me",
-       category: "Novel",
-       image:
-       "https://images-na.ssl-images-amazon.com/images/I/41DC7iV9OCL._SY498_BO1,204,203,200_.jpg",
-       price: 24.95,
-       publisher: "Hamodia",
-       condition: "new",
-       countInStock: 15,
-       },
+41. Delete Product
+
+    1. create delete api in backend
+    2. create delete constants, action and reducer
+    3. use it in product list screen
+
+    {
+    name: "Stay With Me",
+    category: "Novel",
+    image:
+    "https://images-na.ssl-images-amazon.com/images/I/41DC7iV9OCL._SY498_BO1,204,203,200_.jpg",
+    price: 24.95,
+    publisher: "Hamodia",
+    condition: "new",
+    countInStock: 15,
+    },
