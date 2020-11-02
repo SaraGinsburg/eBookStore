@@ -1,42 +1,31 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+import Product from "../components/Product";
+import LoadingBox from "../components/LoadingBox";
+import MessageBox from "../components/MessageBox";
 import { useSelector, useDispatch } from "react-redux";
 import { listProducts } from "../actions/productActions";
 
-function HomeScreen(props) {
+export default function HomeScreen() {
+  const dispatch = useDispatch();
   const productList = useSelector((state) => state.productList);
   const { products, loading, error } = productList;
-  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(listProducts());
   }, [dispatch]);
-  return loading ? (
-    <div>Loading...</div>
-  ) : error ? (
-    <div>{error}</div>
-  ) : (
-    <ul className="products">
-      {products.map((product) => (
-        <li key={product._id}>
-          <div className="product">
-            <Link to={"/product/" + product._id}>
-              <img
-                className="product-image"
-                src={product.image}
-                alt="product"
-              />
-            </Link>
-            <div className="product-name">
-              <Link to={"/product/" + product._id}>{product.name}</Link>
-            </div>
-            <div className="product-brand">{product.publisher}</div>
-            <div className="product-price">${product.price}</div>
-            <div className="product-condition">{product.condition}</div>
-          </div>
-        </li>
-      ))}
-    </ul>
+  return (
+    <div>
+      {loading ? (
+        <LoadingBox></LoadingBox>
+      ) : error ? (
+        <MessageBox variant="danger">{error}</MessageBox>
+      ) : (
+        <div className="row center">
+          {products.map((product) => (
+            <Product key={product._id} product={product}></Product>
+          ))}
+        </div>
+      )}
+    </div>
   );
 }
-export default HomeScreen;

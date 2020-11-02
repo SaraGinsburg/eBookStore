@@ -146,6 +146,7 @@ img.medium {
   width: 100%;
 }
 img.large {
+  max-width: 35rem;
   width: 100%;
 }
 
@@ -246,11 +247,11 @@ img.large {
   color: #f08000;
 }
 /* Table */
- .table {
-   width: 100%;
-   border-collapse: collapse;
+.table {
+  width: 100%;
+  border-collapse: collapse;
 }
-.table tbody tr:nth-of-type(odd){
+.table tbody tr:nth-of-type(odd) {
   background-color: #f4f4f4;
 }
 .table td,
