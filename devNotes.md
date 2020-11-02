@@ -397,6 +397,19 @@ from Readme.md
     2. create delete constants, action and reducer
     3. use it in product list screen
 
+42. List Orders
+
+    1. create order list api
+    2. create Order List Screen
+    3. Add reducer to store
+    4. show products on the screen
+
+43. Delete Order
+
+    1. create delete order api
+    2. create delete order action and reducer
+    3. add order delete action to order list
+
     {
     name: "Stay With Me",
     category: "Novel",
