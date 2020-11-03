@@ -132,6 +132,11 @@ a.brand {
 .min-30 {
   min-width: 30rem;
 }
+.book-cover {
+  height: 22rem;
+  width: 15rem;
+  margin: auto;
+}
 
 /* Image */
 img {
@@ -149,7 +154,6 @@ img.large {
   max-width: 35rem;
   width: 100%;
 }
-
 /* Card */
 .card {
   border: 0.1rem #c0c0c0 solid;
@@ -164,7 +168,7 @@ img.large {
   margin-bottom: 0.5rem;
 }
 .price {
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 /* Rating */
 .rating span {
