@@ -5,6 +5,7 @@
   "description": "Ecommerce Judaic bookstore website",
   "main": "index.js",
   "scripts": {
+    "build": "rm -rf dist && babel backend -d dist",
     "heroku-postbuild": "npm run build && cd frontend && npm install && npm run build",
     "start:dev": "nodemon --watch"
   },
