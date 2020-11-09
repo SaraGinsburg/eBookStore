@@ -3,7 +3,7 @@ import expressAsyncHandler from "express-async-handler";
 import bcrypt from "bcryptjs";
 import data from "../data.js";
 import User from "../models/userModel.js";
-import { generateToken, isAuth } from "../utils.js";
+import { getToken, isAuth } from "../utils.js";
 
 const userRouter = express.Router();
 
@@ -27,7 +27,7 @@ userRouter.post(
           name: user.name,
           email: user.email,
           isAdmin: user.isAdmin,
-          token: generateToken(user),
+          token: getToken(user),
         });
         return;
       }
@@ -50,7 +50,7 @@ userRouter.post(
       name: createdUser.name,
       email: createdUser.email,
       isAdmin: createdUser.isAdmin,
-      token: generateToken(createdUser),
+      token: getToken(createdUser),
     });
   })
 );
@@ -83,7 +83,7 @@ userRouter.put(
         name: updatedUser.name,
         email: updatedUser.email,
         isAdmin: updatedUser.isAdmin,
-        token: generateToken(updatedUser),
+        token: getToken(updatedUser),
       });
     }
   })
