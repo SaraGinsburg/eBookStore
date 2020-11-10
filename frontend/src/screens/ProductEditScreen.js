@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Axios from "../../node_modules/axios/index";
+
 import { detailsProduct, updateProduct } from "../actions/productActions";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
@@ -62,12 +63,11 @@ function ProductEditScreen(props) {
     const bodyFormData = new FormData();
     bodyFormData.append("image", file);
     setUploading(true);
-    axios
-      .post("/api/uploads", bodyFormData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      })
+    Axios.post("/api/uploads", bodyFormData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    })
       .then((response) => {
         if (forImages) {
           setImages([...images, response.data]);
