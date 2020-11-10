@@ -7,21 +7,22 @@ import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
 import { PRODUCT_UPDATE_RESET } from "../constants/productConstants";
 
-export default function ProductEditScreen(props) {
+function ProductEditScreen(props) {
   const productId = props.match.params.id; //get product id from url
+  const dispatch = useDispatch();
 
   //define hooks for product fields
+  const [id, setId] = useState("");
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [image, setImage] = useState("");
+  const [images, setImages] = useState("");
+  const [publisher, setPublisher] = useState("");
   const [category, setCategory] = useState("");
   const [countInStock, setCountInStock] = useState("");
-  const [publisher, setPublisher] = useState("");
   const [description, setDescription] = useState("");
   const [condition, setCondition] = useState("");
-
-  const productDetails = useSelector((state) => state.productDetails);
-  const { loading, error, product } = productDetails;
+  const [uploading, setUploading] = useState(false);
 
   const productUpdate = useSelector((state) => state.productUpdate); //get information from Redux store
   const {
@@ -30,15 +31,18 @@ export default function ProductEditScreen(props) {
     success: successUpdate,
   } = productUpdate;
 
-  const dispatch = useDispatch();
+  const productDetails = useSelector((state) => state.productDetails);
+  const { loading, error, product } = productDetails;
+
   useEffect(() => {
     if (successUpdate) {
+      dispatch({ type: PRODUCT_UPDATE_RESET });
       props.history.push("/productlist");
     }
-    if (!product || product._id !== productId || successUpdate) {
-      dispatch({ type: PRODUCT_UPDATE_RESET });
+    if (!product.name) {
       dispatch(detailsProduct(productId));
     } else {
+      setId(product._id);
       setName(product.name);
       setPrice(product.price);
       setImage(product.image);
@@ -48,16 +52,44 @@ export default function ProductEditScreen(props) {
       setDescription(product.description);
       setCondition(product.condition);
     }
+    return () => {
+      //
+    };
   }, [product, dispatch, productId, successUpdate, props.history]);
 
+  const uploadFileHandler = (e, forImages) => {
+    const file = e.target.files[0];
+    const bodyFormData = new FormData();
+    bodyFormData.append("image", file);
+    setUploading(true);
+    axios
+      .post("/api/uploads", bodyFormData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      })
+      .then((response) => {
+        if (forImages) {
+          setImages([...images, response.data]);
+        } else {
+          setImage(response.data);
+        }
+        setUploading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        setUploading(false);
+      });
+  };
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(
       updateProduct({
-        _id: productId,
+        _id: id,
         name,
         price,
         image,
+        images,
         category,
         countInStock,
         publisher,
@@ -66,43 +98,41 @@ export default function ProductEditScreen(props) {
       })
     );
   };
-  const userSignin = useSelector((state) => state.userSignin);
-  const { userInfo } = userSignin;
-  const [loadingUpload, setLoadingUpload] = useState(false); //define a state hook, default value is false
-  const [errorUpload, setErrorUpload] = useState("");
-  const uploadFileHandler = async (e) => {
-    const file = e.target.files[0];
-    const bodyFormData = new FormData(); //when sending a request to upload a file, we need to create an object (an instance) from the FormData class
-    bodyFormData.append("image", file); //the key for the append is 'image' and the value is the content of the selected file
-    setLoadingUpload(true);
-    try {
-      const { data } = await Axios.post("/api/uploads", bodyFormData, {
-        //send ajax request. path of api is '/api/uploads'
-        headers: {
-          "Content-Type": "multipart/form-data",
-          Authorization: `Bearer ${userInfo.token}`,
-        },
-      });
-      setImage(data);
-      setLoadingUpload(false);
-    } catch (error) {
-      setErrorUpload(error.message);
-      setLoadingUpload(false);
-    }
-  };
+  // const userSignin = useSelector((state) => state.userSignin);
+  // const { userInfo } = userSignin;
+  // const [loadingUpload, setLoadingUpload] = useState(false); //define a state hook, default value is false
+  // const [errorUpload, setErrorUpload] = useState("");
+  // const uploadFileHandler = async (e) => {
+  //   const file = e.target.files[0];
+  //   const bodyFormData = new FormData(); //when sending a request to upload a file, we need to create an object (an instance) from the FormData class
+  //   bodyFormData.append("image", file); //the key for the append is 'image' and the value is the content of the selected file
+  //   setLoadingUpload(true);
+  //   try {
+  //     const { data } = await Axios.post("/api/uploads", bodyFormData, {
+  //       //send ajax request. path of api is '/api/uploads'
+  //       headers: {
+  //         "Content-Type": "multipart/form-data",
+  //         Authorization: `Bearer ${userInfo.token}`,
+  //       },
+  //     });
+  //     setImage(data);
+  //     setLoadingUpload(false);
+  //   } catch (error) {
+  //     setErrorUpload(error.message);
+  //     setLoadingUpload(false);
+  //   }
+  // };
   return (
     <div>
       <form className="form" onSubmit={submitHandler}>
         <div>
-          <h1>Edit Product {productId}</h1>
+          <h1>Edit Product {id}</h1>
         </div>
         {loadingUpdate && <LoadingBox></LoadingBox>}
         {errorUpdate && <MessageBox variant="danger">{errorUpdate}</MessageBox>}
-        {loading ? (
-          <LoadingBox></LoadingBox>
-        ) : error ? (
-          <MessageBox variant="danger">{error}</MessageBox>
-        ) : (
+        {loading && <LoadingBox></LoadingBox>}
+        {error && <MessageBox variant="danger">{error}</MessageBox>}
+        {product.name && (
           <>
             <div>
               <label htmlFor="name">Name</label>
@@ -125,28 +155,43 @@ export default function ProductEditScreen(props) {
               ></input>
             </div>
             <div>
-              <label htmlFor="image">Image</label>
+              <label htmlFor="image">Image Url</label>
               <input
                 id="image"
                 type="text"
-                placeholder="Enter Image"
+                placeholder="Enter image url"
                 value={image}
                 onChange={(e) => setImage(e.target.value)}
-              ></input>
+              />
             </div>
             <div>
-              <label htmlFor="imageFile">Image File</label>
+              <label htmlFor="image-file">Image File</label>
               <input
                 type="file"
-                id="imageFile"
+                id="image-file"
                 label="Choose Image"
                 onChange={uploadFileHandler}
-              ></input>
+              />
+              {uploading && <LoadingBox />}
             </div>
-            {loadingUpload && <LoadingBox></LoadingBox>}
-            {errorUpload && (
-              <MessageBox variant="danger">{errorUpload}</MessageBox>
-            )}
+            <div>
+              <label htmlFor="image-file">Additional Images</label>
+              <div>
+                <ul>
+                  {images.length === 0 && <li>No image</li>}
+                  {images.map((x) => (
+                    <li>{x}</li>
+                  ))}
+                </ul>
+                <input
+                  type="file"
+                  id="additional-image-file"
+                  label="Choose Image"
+                  onChange={(e) => uploadFileHandler(e, true)}
+                />
+              </div>
+              {uploading && <LoadingBox />}
+            </div>
             <div>
               <label htmlFor="category">Category</label>
               <input
@@ -199,7 +244,12 @@ export default function ProductEditScreen(props) {
               ></textarea>
             </div>
             <div>
-              <label></label>
+              <button
+                onClick={() => props.history.push("/productlist")}
+                type="button"
+              >
+                Back
+              </button>{" "}
               <button className="primary" type="submit">
                 Update
               </button>
@@ -210,3 +260,5 @@ export default function ProductEditScreen(props) {
     </div>
   );
 }
+
+export default ProductEditScreen;
