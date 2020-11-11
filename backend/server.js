@@ -1,7 +1,7 @@
 import http from "http";
 import socketIO from "socket.io";
 import express from "express";
-// import path from "path";
+import path from "path";
 import mongoose from "mongoose";
 import bodyParser from "body-parser";
 import config from "./config.js";
@@ -21,7 +21,6 @@ mongoose
   .catch((error) => console.log(error.reason));
 
 const app = express();
-const path = require("path");
 app.use(bodyParser.json());
 app.use("/api/uploads", uploadRouter);
 app.use("/api/users", userRouter);
