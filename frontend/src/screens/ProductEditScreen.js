@@ -15,7 +15,8 @@ export default function ProductEditScreen(props) {
   const [image, setImage] = useState("");
   const [category, setCategory] = useState("");
   const [countInStock, setCountInStock] = useState("");
-  const [brand, setBrand] = useState("");
+  const [publisher, setPublisher] = useState("");
+  const [condition, setCondition] = useState("");
   const [description, setDescription] = useState("");
 
   const productDetails = useSelector((state) => state.productDetails);
@@ -42,7 +43,8 @@ export default function ProductEditScreen(props) {
       setImage(product.image);
       setCategory(product.category);
       setCountInStock(product.countInStock);
-      setBrand(product.brand);
+      setPublisher(product.publisher);
+      setCondition(product.condition);
       setDescription(product.description);
     }
   }, [product, dispatch, productId, successUpdate, props.history]);
@@ -56,7 +58,8 @@ export default function ProductEditScreen(props) {
         price,
         image,
         category,
-        brand,
+        publisher,
+        condition,
         countInStock,
         description,
       })
@@ -155,13 +158,23 @@ export default function ProductEditScreen(props) {
               ></input>
             </div>
             <div>
-              <label htmlFor="brand">Brand</label>
+              <label htmlFor="publisher">Publisher</label>
               <input
-                id="brand"
+                id="publisher"
                 type="text"
-                placeholder="Enter brand"
-                value={brand}
-                onChange={(e) => setBrand(e.target.value)}
+                placeholder="Enter Publisher"
+                value={publisher}
+                onChange={(e) => setPublisher(e.target.value)}
+              ></input>
+            </div>
+            <div>
+              <label htmlFor="condition">Condition</label>
+              <input
+                id="condition"
+                type="text"
+                placeholder="Enter Publisher"
+                value={condition}
+                onChange={(e) => setCondition(e.target.value)}
               ></input>
             </div>
             <div>
