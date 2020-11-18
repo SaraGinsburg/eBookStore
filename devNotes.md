@@ -426,6 +426,17 @@ from Readme.md
     9. Set database connection in heroku env variables
     10. Commit and push
 
+46. List Users
+    1. build api for list users
+    2. Create UserList Screen
+    3. create order details constant, action and reducer
+47. Delete Users
+
+    1. build api for delete users
+    2. create order details constant, action and reducer,
+    3. add to store
+    4. Use action in UserListScreen
+
     {
     name: "Stay With Me",
     category: "Novel",
