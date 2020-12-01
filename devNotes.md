@@ -437,13 +437,22 @@ from Readme.md
     3. add to store
     4. Use action in UserListScreen
 
-    {
-    name: "Stay With Me",
-    category: "Novel",
-    image:
-    "https://images-na.ssl-images-amazon.com/images/I/41DC7iV9OCL._SY498_BO1,204,203,200_.jpg",
-    price: 24.95,
-    publisher: "Hamodia",
-    condition: "new",
-    countInStock: 15,
-    },
+48. Edit User
+    1. build api for update users 1. build api for update users
+    2. create edit screen UI 2. create edit screen UI
+49. Implement Seller View
+    1. add seller menu
+    2. create seller route
+    3. list products for seller
+    4. list orders for seller
+    5. add Seller to Product List and Details Screen
+       {
+       name: "Stay With Me",
+       category: "Novel",
+       image:
+       "https://images-na.ssl-images-amazon.com/images/I/41DC7iV9OCL._SY498_BO1,204,203,200_.jpg",
+       price: 24.95,
+       publisher: "Hamodia",
+       condition: "new",
+       countInStock: 15,
+       },
