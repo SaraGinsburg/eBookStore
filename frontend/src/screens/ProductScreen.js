@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { detailsProduct } from "../actions/productActions";
-import LoadingBox from "../components/LoadingBox";
-import MessageBox from "../components/MessageBox";
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { detailsProduct } from '../actions/productActions';
+import LoadingBox from '../components/LoadingBox';
+import MessageBox from '../components/MessageBox';
+import Rating from '../components/Rating';
 
 export default function ProductScreen(props) {
   const dispatch = useDispatch();
@@ -23,22 +24,28 @@ export default function ProductScreen(props) {
       {loading ? (
         <LoadingBox></LoadingBox>
       ) : error ? (
-        <MessageBox variant="danger">{error}</MessageBox>
+        <MessageBox variant='danger'>{error}</MessageBox>
       ) : (
         <div>
-          <Link to="/">Back to result</Link>
-          <div className="row top">
-            <div className="col-2">
+          <Link to='/'>Back to result</Link>
+          <div className='row top'>
+            <div className='col-2'>
               <img
-                className="large"
+                className='large'
                 src={product.image}
                 alt={product.name}
               ></img>
             </div>
-            <div className="col-1">
+            <div className='col-1'>
               <ul>
                 <li>
                   <h1>{product.name}</h1>
+                </li>
+                <li>
+                  <Rating
+                    rating={product.rating}
+                    numReviews={product.numReviews}
+                  ></Rating>
                 </li>
                 <li>Pirce : ${product.price}</li>
                 <li>
@@ -47,23 +54,35 @@ export default function ProductScreen(props) {
                 </li>
               </ul>
             </div>
-            <div className="col-1">
-              <div className="card card-body">
+            <div className='col-1'>
+              <div className='card card-body'>
                 <ul>
                   <li>
-                    <div className="row">
+                    Seller{' '}
+                    <h2>
+                      <Link to={`/seller/${product.seller._id}`}>
+                        {product.seller.seller.name}
+                      </Link>
+                    </h2>
+                    <Rating
+                      rating={product.seller.seller.rating}
+                      numReviews={product.seller.seller.numReviews}
+                    ></Rating>
+                  </li>
+                  <li>
+                    <div className='row'>
                       <div>Price</div>
-                      <div className="price">${product.price}</div>
+                      <div className='price'>${product.price}</div>
                     </div>
                   </li>
                   <li>
-                    <div className="row">
+                    <div className='row'>
                       <div>Status</div>
                       <div>
                         {product.countInStock > 0 ? (
-                          <span className="success">In Stock</span>
+                          <span className='success'>In Stock</span>
                         ) : (
-                          <span className="danger">Unavailable</span>
+                          <span className='danger'>Unavailable</span>
                         )}
                       </div>
                     </div>
@@ -71,7 +90,7 @@ export default function ProductScreen(props) {
                   {product.countInStock > 0 && (
                     <>
                       <li>
-                        <div className="row">
+                        <div className='row'>
                           <div>Qty</div>
                           <div>
                             <select
@@ -92,7 +111,7 @@ export default function ProductScreen(props) {
                       <li>
                         <button
                           onClick={addToCartHandler}
-                          className="primary block"
+                          className='primary block'
                         >
                           Add to Cart
                         </button>
