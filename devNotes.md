@@ -456,13 +456,17 @@ from Readme.md
     2. implement actions and reducers for top sellers
     3. use react carousel with data in Home Screen
 
-       {
-       name: "Stay With Me",
-       category: "Novel",
-       image:
-       "https://images-na.ssl-images-amazon.com/images/I/41DC7iV9OCL._SY498_BO1,204,203,200_.jpg",
-       price: 24.95,
-       publisher: "Hamodia",
-       condition: "new",
-       countInStock: 15,
-       },
+52. Force Order Items From One Seller
+
+    1. update addToCart action to buy from one seller at an order
+
+    {
+    name: "Stay With Me",
+    category: "Novel",
+    image:
+    "https://images-na.ssl-images-amazon.com/images/I/41DC7iV9OCL._SY498_BO1,204,203,200_.jpg",
+    price: 24.95,
+    publisher: "Hamodia",
+    condition: "new",
+    countInStock: 15,
+    },
