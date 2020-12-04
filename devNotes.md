@@ -458,7 +458,17 @@ from Readme.md
 
 52. Force Order Items From One Seller
 
-    1. update addToCart action to buy from one seller at an order
+    1. update addToCart action to buy from one seller
+
+53. Create Search Box and Search Screen
+
+    1. create search bar in Header.js
+    2. add style
+    3. handle submit form
+    4. edit parse url to get query string
+    5. update product list api for search by name
+
+    at an order
 
     {
     name: "Stay With Me",
