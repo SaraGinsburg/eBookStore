@@ -38,6 +38,7 @@ function App() {
   const signoutHandler = () => {
     dispatch(signout());
   };
+
   const productCategoryList = useSelector((state) => state.productCategoryList);
   const {
     loading: loadingCategories,
@@ -60,7 +61,7 @@ function App() {
               <i className="fa fa-bars"></i>
             </button>
             <Link className="brand" to="/">
-              eBookStore
+              amazona
             </Link>
           </div>
           <div>
@@ -101,7 +102,7 @@ function App() {
             )}
             {userInfo && userInfo.isSeller && (
               <div className="dropdown">
-                <Link to="#seller">
+                <Link to="#admin">
                   Seller <i className="fa fa-caret-down"></i>
                 </Link>
                 <ul className="dropdown-content">
@@ -198,6 +199,11 @@ function App() {
             component={SearchScreen}
             exact
           ></Route>
+          <Route
+            path="/search/category/:category/name/:name/min/:min/max/:max/rating/:rating/order/:order"
+            component={SearchScreen}
+            exact
+          ></Route>
           <PrivateRoute
             path="/profile"
             component={ProfileScreen}
@@ -225,6 +231,7 @@ function App() {
             path="/orderlist/seller"
             component={OrderListScreen}
           ></SellerRoute>
+
           <Route path="/" component={HomeScreen} exact></Route>
         </main>
         <footer className="row center">All right reserved</footer>
