@@ -29,7 +29,6 @@ import {
   userTopSellerListReducer,
   userUpdateProfileReducer,
   userUpdateReducer,
-  // userUpdateReducer,
 } from './reducers/userReducers';
 
 const initialState = {
