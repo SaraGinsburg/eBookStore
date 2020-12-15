@@ -157,6 +157,10 @@ if token exists, keep only token, (get rid of the barrier part).
 
 from Readme.md
 
+Support
+Q/A: https://webacademy.pro/amazona
+Contact Instructor: Basir
+
 # ECommerce Website
 
 1. Introduction to this course
@@ -478,19 +482,24 @@ from Readme.md
     3. sort by price, rating, ...
 56. Rate and Review Products
     1. rate products
-    2.  create actions and reducers	 
- 57. Choose Address On Google Map
-    1. create google map credentials
-    2. update .env file with Google Api Key
-    3. create api to send google api to frontend
-    4. create map screen
-    5. fetch google api
-    6. getUserLocation
-    7. install @react-google-maps/api
-    8. use it in shipping screen
-    9. apply map to the checkout screen
+    2. create actions and reducers
+57. Choose Address On Google Map
+58. create google map credentials
+59. update .env file with Google Api Key
+60. create api to send google api to frontend
+61. create map screen
+62. fetch google api
+63. getUserLocation
+64. install @react-google-maps/api
+65. use it in shipping screen
+66. apply map to the checkout screen
+67. BugFix: Running Locally Without Issue
 
-    
+    1. add seller info to data.js
+    2. seed product data with admin info as seller
+    3. fix isSeller and isAdmin on update user
+    4. remove auth from user details
+
     {
     name: "Stay With Me",
     category: "Novel",
