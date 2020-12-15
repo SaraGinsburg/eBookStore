@@ -11,4 +11,6 @@ export default {
   AMAZON_ACCESS_KEY_ID: process.env.AMAZON_ACCESS_KEY_ID || 'NO_AMAZON_ID',
   AMAZON_SECRET_ACCESS_KEY:
     process.env.AMAZON_SECRET_ACCESS_KEY || 'NO_AMAZON_KEY',
+  accessKeyId: process.env.accessKeyId || 'accessKeyId',
+  secretAccessKey: process.env.secretAccessKey || 'secretAccessKey',
 };

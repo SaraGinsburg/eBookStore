@@ -505,16 +505,39 @@ Contact Instructor: Basir
     4. remove auth from user details
 
 59. Implement Pagination
+
     1. add pagination to product router in backend
     2. apply page number to actions and reducers in frontend
     3. show page numbers in search screen
-       {
-       name: "Stay With Me",
-       category: "Novel",
-       image:
-       "https://images-na.ssl-images-amazon.com/images/I/41DC7iV9OCL._SY498_BO1,204,203,200_.jpg",
-       price: 24.95,
-       publisher: "Hamodia",
-       condition: "new",
-       countInStock: 15,
-       },
+
+60. Upload Product Images on AWS S3
+
+    1. create an aws account
+    2. open https://s3.console.aws.amazon.com
+    3. crete public bucket as eBookStore
+    4. create api key and secret
+    5. paste it into .env as accessKeyId and secretAccessKey
+    6. move dotenv to config.js
+    7. add accessKeyId and secretAccessKey to config.js
+    8. npm install aws-sdk multer-s3
+    9. routes/uploadRoute.js
+    10. set aws.config.update to config values
+    11. create s3 from new aws.S3()
+    12. create storageS3 from multerS3 by setting s3, bucket and acl
+    13. set uploadS3 as multer({storage: storageS3})
+    14. router.post('/s3', uploadS3.single('image'))
+    15. return req.file.location
+    16. ProductsScreen.js
+    17. on handleUploadImage set axios.post('api/uploads/s3')
+    18. check result on website and s3
+
+    {
+    name: "Stay With Me",
+    category: "Novel",
+    image:
+    "https://images-na.ssl-images-amazon.com/images/I/41DC7iV9OCL._SY498_BO1,204,203,200_.jpg",
+    price: 24.95,
+    publisher: "Hamodia",
+    condition: "new",
+    countInStock: 15,
+    },
