@@ -1,13 +1,13 @@
 Run Locally
 
 1. Clone repo
-   $ git clone git@github.com:basir/amazona.git
-   $ cd amazona
+   $ git clone git@github.com:saraginsburg/ebookstore.git
+   $ cd ebookstore
 2. Setup MongoDB
    Local MongoDB
    Install it from here
    Create .env file in root folder
-   Set MONGODB_URL=mongodb://localhost/amazona
+   Set MONGODB_URL=mongodb://localhost/ebookstore
    Atlas Cloud MongoDB
    Create database at https://cloud.mongodb.com
    Create .env file in root folder
