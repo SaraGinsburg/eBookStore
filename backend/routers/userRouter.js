@@ -97,12 +97,14 @@ userRouter.put(
         user.password = bcrypt.hashSync(req.body.password, 8);
       }
       const updatedUser = await user.save();
+      console.log('updatedUser', updatedUser);
       res.send({
         _id: updatedUser._id,
         name: updatedUser.name,
         email: updatedUser.email,
         isAdmin: updatedUser.isAdmin,
         isSeller: user.isSeller,
+        logo: updatedUser.seller.logo,
         token: generateToken(updatedUser),
       });
     }

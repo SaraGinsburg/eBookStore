@@ -228,6 +228,7 @@ a > .rating > span:last-child {
 }
 .card-body {
   padding: 1rem;
+  height: auto;
 }
 .card-body > * {
   margin-bottom: 0.5rem;
