@@ -36,4 +36,5 @@ frontend/package-lock.json
 frontend/yarn-lock.json
 #aws
 .elasticbeanstalk/
+devNotes.md
 
